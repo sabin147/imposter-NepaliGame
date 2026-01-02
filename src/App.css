@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+:root {
+  --primary-red: #ff0000;
+  --panel-bg: rgba(10, 10, 10, 0.95);
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  background-image: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
+  background-size: 100% 2px, 3px 100%;
+}
+
+.command-panel {
+  background: var(--panel-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 1), inset 0 0 20px rgba(255, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.glitch-text {
+  text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+  letter-spacing: -0.05em;
+}
+
+.status-bar {
+  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 0, 0, 0.1) 10px, rgba(255, 0, 0, 0.1) 20px);
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-progress {
+  animation: progress 0.8s ease-out forwards;
+}

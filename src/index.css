@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+:root {
+  --fun-purple: #9d50bb;
+  --fun-pink: #6e48aa;
+  --soft-yellow: #fce38a;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  font-family: 'Quicksand', sans-serif; /* Rounded fonts work best for fun themes */
+}
+
+/* Floating Animation for a "Lively" feel */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* 3D "Pop" Button Effect */
+.pop-button {
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 6px 0 #4c1d95; /* Darker purple bottom for 3D look */
+}
+
+.pop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #4c1d95;
+}
+
+.pop-button:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #4c1d95;
+}
+
+/* Glassy Card with Rainbow Border */
+.lively-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border: 4px solid white;
+}
