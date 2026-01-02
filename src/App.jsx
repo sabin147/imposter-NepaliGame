@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Ghost, Search, RotateCcw, ChevronRight, MessageCircle, AlertCircle } from 'lucide-react';
+import { Ghost, Search, RotateCcw, ChevronRight, MessageCircle } from 'lucide-react';
 
 const categories = {
   animals: {
@@ -27,7 +27,7 @@ const categories = {
     name: '🎬 Movies',
     words: [
       'Avatar', 'Titanic', 'Star Wars', 'Jurassic Park', 'Avengers', 'Iron Man', 'The Dark Knight', 'Inception', 'Interstellar', 'Gladiator', 'Braveheart', 'The Matrix', 'The Godfather', 'Pulp Fiction', 'Forrest Gump', 'The Lion King', 'Toy Story', 'Finding Nemo', 'Frozen', 'Shrek', 'Harry Potter', 'Lord of the Rings', 'The Hobbit', 'Pirates of the Caribbean', 'Spider-Man', 'Batman', 'Superman', 'Wonder Woman', 'Black Panther', 'Joker', 'Deadpool', 'The Hangover', 'Bridesmaids', 'Home Alone', 'Die Hard', 'Mission Impossible', 'James Bond', 'Fast and Furious', 'Mad Max', 'Terminator', 'Alien', 'Predator', 'Ghostbusters', 'Back to the Future', 'Indiana Jones', 'E.T.', 'Jaws', 'Psycho', 'The Shining', 'Scream', 'Halloween', 'Up', 'Coco', 'Ratatouille', 'The Incredibles', 'Monsters Inc', 'Cars', 'Moana', 'Aladdin', 'Beauty and the Beast', 'Cinderella', 'The Little Mermaid', 'Mulan', 'Tarzan', 'Hercules', 'Pocahontas', 'The Jungle Book', 'Sleeping Beauty', 'Snow White', 'Pinocchio', 'Bambi', 'Dumbo', 'Alice in Wonderland', 'Peter Pan', 'Lady and the Tramp', '101 Dalmatians', 'The Aristocats', 'Robin Hood', 'The Fox and the Hound', 'The Rescuers',
-      'Loot', 'Kabaddi', 'Pashupati Prasad', 'Chhakka Panja', 'Darpan Chhaya', 'Kusume Rumal', 'Basanti', 'Jhola', 'Maitighar', 'Hami Tin Bhai', 'Kohinoor', 'Aama', 'Numafung', 'Khalo', 'Seto Surya', 'Kilo Pothi', 'Kagbeni', 'Saanghuro', 'Prem Geet', 'Jerry'
+      'Loot', 'Kabaddi', 'Pashupati Prasad', 'Chhakka Panja', 'Darpan Chhaya', 'Kusume Rumal', 'Basanti', 'Jhola', 'Maitighar', 'Hami Tin Bhai', 'Kohinoor', 'Aama', 'Numafung', 'Khalo', 'Seto Surya', 'Kalo Pothi', 'Kagbeni', 'Saanghuro', 'Prem Geet', 'Jerry'
     ]
   },
   locations: {
@@ -82,7 +82,6 @@ const App = () => {
       setCurrentPlayer(prev => prev + 1);
       setShowWord(false);
     } else {
-      // Go to discussion first, not voting!
       setGameState('discussion');
     }
   };
@@ -98,8 +97,8 @@ const App = () => {
                 <div className="bg-gradient-to-tr from-yellow-400 to-orange-400 w-20 h-20 rounded-3xl mx-auto flex items-center justify-center shadow-lg rotate-12 mb-4">
                   <Ghost className="text-white" size={40} />
                 </div>
-                <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">को होला चोर?</h1>
-                <p className="text-slate-400 text-sm mt-1 uppercase tracking-widest font-bold">Imposter Game</p>
+                <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">को होला धोकेबाज?</h1>
+                <p className="text-slate-400 text-sm mt-1 uppercase tracking-widest font-bold font-mono tracking-tight">Imposter Game with Some Nepali Twist</p>
               </div>
 
               <div className="space-y-6">
@@ -145,7 +144,7 @@ const App = () => {
                 <div className="space-y-8 animate-in flip-in-y duration-500">
                   <div className={`p-10 rounded-[2.5rem] border-4 border-dashed relative ${currentPlayer === gameData.imposterIndex ? 'bg-red-50 border-red-400' : 'bg-yellow-50 border-yellow-400'}`}>
                      <span className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs text-white font-bold ${currentPlayer === gameData.imposterIndex ? 'bg-red-500' : 'bg-yellow-500'}`}>YOUR CARD</span>
-                     <div className={`text-4xl font-black tracking-tighter ${currentPlayer === gameData.imposterIndex ? 'text-red-600' : 'text-indigo-800'}`}>
+                     <div className={`text-4xl font-black tracking-tighter whitespace-pre-line ${currentPlayer === gameData.imposterIndex ? 'text-red-600' : 'text-indigo-800'}`}>
                        {currentPlayer === gameData.imposterIndex ? 'धोकेबाज हौ तिमी! 🕵️\n(IMPOSTER)' : gameData.secretWord}
                      </div>
                   </div>
@@ -164,7 +163,7 @@ const App = () => {
                 <h2 className="text-3xl font-black text-slate-800 italic">Discussion Time! 🗣️</h2>
                 <p className="text-slate-500 text-sm">
                   Everyone has seen their word. Put the phone in the middle and start describing! 
-                  When you've found the <span className="text-red-500">dhokebazz</span>, click below.
+                  When you've found the <span className="text-red-500 font-black">धोकेबाज</span>, click below.
                 </p>
               </div>
 
