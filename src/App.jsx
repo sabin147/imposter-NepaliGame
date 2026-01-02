@@ -101,9 +101,9 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 flex items-center justify-center font-bold text-slate-800 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+    <div className="min-h-screen p-4 flex items-center justify-center font-bold text-slate-800 bg-gradient-to-br from-slate-900 via-slate-800 to-black">
       <div className="w-full max-w-md relative">
-        <div className="lively-card p-8 space-y-8 bg-white/95 backdrop-blur-sm rounded-[2.5rem] shadow-2xl border-4 border-white">
+        <div className="lively-card p-8 space-y-8 bg-slate950/95 backdrop-blur-sm rounded-[2.5rem] shadow-2xl border border-slate-800">
           
           {gameState === 'setup' && (
             <div className="space-y-8 animate-in zoom-in duration-300">
@@ -111,8 +111,8 @@ const App = () => {
                 <div className="bg-gradient-to-tr from-yellow-400 to-orange-400 w-20 h-20 rounded-3xl mx-auto flex items-center justify-center shadow-lg rotate-12 mb-4">
                   <Ghost className="text-white" size={40} />
                 </div>
-                <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">को होला चोर?</h1>
-                <p className="text-slate-400 text-sm mt-1">Global & Nepali Edition</p>
+                <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">को होला चोर?</h1>
+                <p className="text-slate-400 text-sm mt-1">Imposter Game with Some Nepali Twists</p>
               </div>
 
               <div className="space-y-6">
