@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Ghost, Search, RotateCcw, ChevronRight, MessageCircle } from 'lucide-react';
+// 1. Import the new logo at the top
+import NepaliImposterLogo from './Logo';
+import gameIcon from './assets/topi.jpg'; // Example asset import, replace with actual path if needed
 
 const categories = {
   animals: {
@@ -94,9 +97,13 @@ const App = () => {
           {gameState === 'setup' && (
             <div className="space-y-8 animate-in zoom-in duration-300">
               <div className="text-center">
-                <div className="bg-gradient-to-tr from-yellow-400 to-orange-400 w-20 h-20 rounded-3xl mx-auto flex items-center justify-center shadow-lg rotate-12 mb-4">
-                  <Ghost className="text-white" size={40} />
-                </div>
+                <div className="w-24 h-24 mx-auto mb-4 drop-shadow-xl hover:scale-110 transition-transform">
+  <img 
+    src={gameIcon} 
+    alt="Dhokebaaz Icon" 
+    className="w-full h-full object-contain"
+  />
+</div>
                 <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">को होला धोकेबाज?</h1>
                 <p className="text-slate-400 text-sm mt-1 uppercase tracking-widest font-bold font-mono tracking-tight">Imposter Game with Some Nepali Twist</p>
               </div>
