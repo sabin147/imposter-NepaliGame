@@ -1,42 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;400;700;900&display=swap');
 @import "tailwindcss";
 
 :root {
-  --primary-red: #ff0000;
-  --panel-bg: rgba(10, 10, 10, 0.95);
+  --bg-primary: #fdf8f3;
+  --bg-secondary: #f5f0eb;
+  --accent: #e4a4bd;
+  --charcoal: #262626;
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 body {
-  background-color: #000;
-  color: #fff;
-  font-family: 'Inter', sans-serif;
-  background-image: 
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
-    linear-gradient(90deg, rgba(255, 0, 0, 0.05), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.05));
-  background-size: 100% 2px, 3px 100%;
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--charcoal);
+  font-family: 'League Spartan', sans-serif;
+  overflow-x: hidden;
 }
 
-.command-panel {
-  background: var(--panel-bg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 1), inset 0 0 20px rgba(255, 0, 0, 0.05);
-  position: relative;
-  overflow: hidden;
-}
-
-.glitch-text {
-  text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+/* Typography Overrides */
+h1, h2, .massive-heading {
+  font-weight: 900;
+  line-height: 0.8;
   letter-spacing: -0.05em;
+  text-transform: uppercase;
 }
 
-.status-bar {
-  background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 0, 0, 0.1) 10px, rgba(255, 0, 0, 0.1) 20px);
+.utility-label {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
 }
 
-@keyframes progress {
-  0% { width: 0%; }
-  100% { width: 100%; }
+/* Premium Animations */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(-5%); }
+  50% { transform: translateY(5%); }
 }
 
-.animate-progress {
-  animation: progress 0.8s ease-out forwards;
+.animate-premium {
+  transition: all 1s var(--ease-premium);
+}
+
+.grayscale-reveal {
+  filter: grayscale(100%);
+  transition: all 1s var(--ease-premium);
+}
+
+.grayscale-reveal:hover {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
+/* Custom Scrollbar for the Category Grid */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--accent);
 }
