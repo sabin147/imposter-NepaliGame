@@ -153,7 +153,7 @@ const App = () => {
               </div>
               
               {/* Badge - Scaled down for mobile */}
-              <div className="absolute -top-6 -right-4 md:-top-12 md:-right-12 w-24 h-24 md:w-40 md:h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl z-10">
+              <div className="absolute -top-18 -right-4 md:-top-12 md:-right-12 w-24 h-24 md:w-40 md:h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl z-10">
                 <span className="text-2xl md:text-4xl font-light italic">01</span>
                 <span className="utility-label text-[6px] md:text-[8px]">Ranked</span>
               </div>
