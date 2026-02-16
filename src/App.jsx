@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
 import './App.css';
 import { Ghost, Search, RotateCcw, ArrowRight,  ChevronRight, MessageCircle } from 'lucide-react';
-// 1. Import the new logo at the top
 import NepaliImposterLogo from './Logo';
 import gameIcon from './assets/topi.jpg'; // Example asset import, replace with actual path if needed
 
@@ -107,53 +106,53 @@ const App = () => {
 
       <main className="pt-16 md:pt-20">
         {gameState === 'setup' && (
-          <section className="min-h-[calc(100vh-80px)] grid grid-cols-12 gap-6 md:gap-8 items-center px-6 md:px-12 py-10">
-            <div className="col-span-12 lg:col-span-7">
-              <h1 className="mb-6 md:mb-8">
-                WHO IS THE <br />
-                <span className="text-[#e4a4bd] italic font-light lowercase">dhokebaaz?</span>
-              </h1>
-              <div className="flex items-center gap-4 group cursor-pointer mb-10 lg:mb-0" onClick={startGame}>
-                <span className="text-xl md:text-2xl border-b-2 border-[#e4a4bd] pb-1 font-bold">START EXPEDITION</span>
-                <ArrowRight className="text-[#e4a4bd] group-hover:translate-x-2 transition-transform" />
-              </div>
+  <section className="min-h-[calc(100vh-64px)] md:min-h-[calc(100vh-80px)] grid grid-cols-12 gap-6 md:gap-8 items-center px-6 md:px-12 py-6 md:py-10">
+    <div className="col-span-12 lg:col-span-7">
+      <h1 className="mb-4 md:mb-8">
+        WHO IS THE <br />
+        <span className="text-[#e4a4bd] italic font-light lowercase">dhokebaaz?</span>
+      </h1>
+      <div className="flex items-center gap-4 group cursor-pointer mb-6 lg:mb-0" onClick={startGame}>
+        <span className="text-xl md:text-2xl border-b-2 border-[#e4a4bd] pb-1 font-bold">START EXPEDITION</span>
+        <ArrowRight className="text-[#e4a4bd] group-hover:translate-x-2 transition-transform" />
+      </div>
+    </div>
+
+    <div className="col-span-12 lg:col-span-5 relative">
+      <div className="bg-[#f5f0eb] p-4 md:p-10 rounded-[24px] border border-black/5">
+        <div className="space-y-4 md:space-y-10">
+          <div>
+            <p className="utility-label mb-2">Travelers</p>
+            <div className="flex items-center justify-between border-b border-black/10 pb-2">
+              <button onClick={() => setPlayerCount(Math.max(3, playerCount - 1))} className="text-3xl">-</button>
+              <span className="text-4xl md:text-7xl font-black">{playerCount}</span>
+              <button onClick={() => setPlayerCount(Math.min(20, playerCount + 1))} className="text-3xl">+</button>
             </div>
+          </div>
 
-            <div className="col-span-12 lg:col-span-5 relative">
-              <div className="bg-[#f5f0eb] p-6 md:p-10 rounded-[24px] border border-black/5">
-                <div className="space-y-8 md:space-y-10">
-                  <div>
-                    <p className="utility-label mb-2">Travelers</p>
-                    <div className="flex items-center justify-between border-b border-black/10 pb-2">
-                      <button onClick={() => setPlayerCount(Math.max(3, playerCount - 1))} className="text-3xl">-</button>
-                      <span className="text-5xl md:text-7xl font-black">{playerCount}</span>
-                      <button onClick={() => setPlayerCount(Math.min(20, playerCount + 1))} className="text-3xl">+</button>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="utility-label mb-2">Destination</p>
-                    <div className="grid grid-cols-2 gap-2 h-40 overflow-y-auto pr-2 custom-scrollbar">
-                      <button 
-                        onClick={() => setSelectedCategory('all')} 
-                        className={`p-3 text-xs font-bold transition-all ${selectedCategory === 'all' ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
-                        ALL RANDOM
-                      </button>
-                      {Object.entries(categories).map(([key, cat]) => (
-                        <button 
-                          key={key} 
-                          onClick={() => setSelectedCategory(key)} 
-                          className={`p-3 text-xs font-bold transition-all ${selectedCategory === key ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
-                          {cat.name.toUpperCase()}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div>
+            <p className="utility-label mb-2">Destination</p>
+            <div className="grid grid-cols-2 gap-2 max-h-[280px] md:max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
+              <button 
+                onClick={() => setSelectedCategory('all')} 
+                className={`p-3 text-xs font-bold transition-all ${selectedCategory === 'all' ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
+                ALL RANDOM
+              </button>
+              {Object.entries(categories).map(([key, cat]) => (
+                <button 
+                  key={key} 
+                  onClick={() => setSelectedCategory(key)} 
+                  className={`p-3 text-xs font-bold transition-all ${selectedCategory === key ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
+                  {cat.name.toUpperCase()}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
               
               {/* Badge - Scaled down for mobile */}
-              <div className="absolute -top-18 -right-4 md:-top-12 md:-right-12 w-24 h-24 md:w-40 md:h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl z-10">
+              <div className="absolute -top-18 -right-4 md:-top-24 md:-right-12 w-24 h-24 md:w-40 md:h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl z-10">
                 <span className="text-2xl md:text-4xl font-light italic">01</span>
                 <span className="utility-label text-[6px] md:text-[8px]">Ranked</span>
               </div>
