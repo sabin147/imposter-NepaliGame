@@ -95,57 +95,55 @@ const App = () => {
 
  return (
     <div className="min-h-screen bg-[#fdf8f3] text-[#262626]">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full h-20 flex items-center justify-between px-12 z-50 bg-[#fdf8f3]/80 backdrop-blur-md border-b border-black/5">
-        <div className="font-black text-xl tracking-tighter">DHOKEBAAZ <span className="text-[#e4a4bd] italic font-light">travel</span></div>
-        <div className="hidden md:flex gap-8 utility-label">
-          <span className="cursor-pointer hover:text-[#e4a4bd] transition-colors">How to play</span>
-          <span className="cursor-pointer hover:text-[#e4a4bd] transition-colors">Categories</span>
-        </div>
-        <button onClick={() => setGameState('setup')} className="bg-[#e4a4bd] px-8 py-3 rounded-full utility-label hover:brightness-95 transition-all">Reset Game</button>
+      {/* Navigation - Responsive height and padding */}
+      <nav className="fixed top-0 w-full h-16 md:h-20 flex items-center justify-between px-6 md:px-12 z-50 bg-[#fdf8f3]/90 backdrop-blur-md border-b border-black/5">
+        <div className="font-black text-lg md:text-xl tracking-tighter uppercase">DHOKEBAAZ</div>
+        <button 
+          onClick={() => setGameState('setup')} 
+          className="bg-[#e4a4bd] px-4 py-2 md:px-8 md:py-3 rounded-full utility-label text-[8px] md:text-[10px]">
+          Reset
+        </button>
       </nav>
 
-      <main className="pt-20">
+      <main className="pt-16 md:pt-20">
         {gameState === 'setup' && (
-          <section className="min-h-[calc(100vh-80px)] grid grid-cols-12 gap-8 items-center px-12">
-            {/* Left side: Hero Text */}
-            <div className="col-span-12 lg:col-span-7 py-12">
-              <h1 className="text-[12vw] leading-[0.8] mb-8">
+          <section className="min-h-[calc(100vh-80px)] grid grid-cols-12 gap-6 md:gap-8 items-center px-6 md:px-12 py-10">
+            <div className="col-span-12 lg:col-span-7">
+              <h1 className="mb-6 md:mb-8">
                 WHO IS THE <br />
                 <span className="text-[#e4a4bd] italic font-light lowercase">dhokebaaz?</span>
               </h1>
-              <div className="flex items-center gap-4 group cursor-pointer" onClick={startGame}>
-                <span className="text-2xl border-b-2 border-[#e4a4bd] pb-1 font-bold">START THE EXPEDITION</span>
+              <div className="flex items-center gap-4 group cursor-pointer mb-10 lg:mb-0" onClick={startGame}>
+                <span className="text-xl md:text-2xl border-b-2 border-[#e4a4bd] pb-1 font-bold">START EXPEDITION</span>
                 <ArrowRight className="text-[#e4a4bd] group-hover:translate-x-2 transition-transform" />
               </div>
             </div>
 
-            {/* Right side: Setup Card */}
             <div className="col-span-12 lg:col-span-5 relative">
-              <div className="bg-[#f5f0eb] p-10 rounded-[24px] shadow-sm border border-black/5">
-                <div className="space-y-10">
+              <div className="bg-[#f5f0eb] p-6 md:p-10 rounded-[24px] border border-black/5">
+                <div className="space-y-8 md:space-y-10">
                   <div>
-                    <p className="utility-label mb-4">Total Travelers</p>
-                    <div className="flex items-center justify-between border-b border-black/10 pb-4">
-                      <button onClick={() => setPlayerCount(Math.max(3, playerCount - 1))} className="text-4xl">-</button>
-                      <span className="text-7xl font-black">{playerCount}</span>
-                      <button onClick={() => setPlayerCount(Math.min(20, playerCount + 1))} className="text-4xl">+</button>
+                    <p className="utility-label mb-2">Travelers</p>
+                    <div className="flex items-center justify-between border-b border-black/10 pb-2">
+                      <button onClick={() => setPlayerCount(Math.max(3, playerCount - 1))} className="text-3xl">-</button>
+                      <span className="text-5xl md:text-7xl font-black">{playerCount}</span>
+                      <button onClick={() => setPlayerCount(Math.min(20, playerCount + 1))} className="text-3xl">+</button>
                     </div>
                   </div>
 
                   <div>
-                    <p className="utility-label mb-4">Destination Category</p>
-                    <div className="grid grid-cols-2 gap-2 h-48 overflow-y-auto pr-2 custom-scrollbar">
+                    <p className="utility-label mb-2">Destination</p>
+                    <div className="grid grid-cols-2 gap-2 h-40 overflow-y-auto pr-2 custom-scrollbar">
                       <button 
                         onClick={() => setSelectedCategory('all')} 
-                        className={`p-4 text-left font-bold transition-all ${selectedCategory === 'all' ? 'bg-[#e4a4bd]' : 'bg-white hover:bg-white/50'}`}>
+                        className={`p-3 text-xs font-bold transition-all ${selectedCategory === 'all' ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
                         ALL RANDOM
                       </button>
                       {Object.entries(categories).map(([key, cat]) => (
                         <button 
                           key={key} 
                           onClick={() => setSelectedCategory(key)} 
-                          className={`p-4 text-left font-bold transition-all ${selectedCategory === key ? 'bg-[#e4a4bd]' : 'bg-white hover:bg-white/50'}`}>
+                          className={`p-3 text-xs font-bold transition-all ${selectedCategory === key ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
                           {cat.name.toUpperCase()}
                         </button>
                       ))}
@@ -153,39 +151,39 @@ const App = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Floating Concierge Badge */}
-              <div className="absolute -top-12 -right-12 w-40 h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl">
-                <span className="text-4xl font-light italic">01</span>
-                <span className="utility-label text-[8px]">Ranked Game</span>
+              
+              {/* Badge - Scaled down for mobile */}
+              <div className="absolute -top-6 -right-4 md:-top-12 md:-right-12 w-24 h-24 md:w-40 md:h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl z-10">
+                <span className="text-2xl md:text-4xl font-light italic">01</span>
+                <span className="utility-label text-[6px] md:text-[8px]">Ranked</span>
               </div>
             </div>
           </section>
         )}
 
         {gameState === 'playing' && (
-          <section className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-12 text-center">
-            <p className="utility-label text-[#e4a4bd] mb-4">Current Explorer: {currentPlayer + 1} / {playerCount}</p>
-            <h2 className="text-8xl mb-12">PLAYER IDENTITY</h2>
+          <section className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6 text-center py-10">
+            <p className="utility-label text-[#e4a4bd] mb-2">Explorer {currentPlayer + 1} / {playerCount}</p>
+            <h2 className="text-4xl md:text-7xl mb-8 font-black uppercase tracking-tighter">Identity</h2>
             
-            <div className="w-full max-w-2xl aspect-[16/9] bg-[#f5f0eb] rounded-[24px] flex items-center justify-center overflow-hidden border border-black/5">
+            <div className="w-full max-w-lg aspect-[4/5] md:aspect-[16/9] bg-[#f5f0eb] rounded-[24px] flex items-center justify-center overflow-hidden border border-black/5 relative">
               {!showWord ? (
                 <button 
                   onClick={() => setShowWord(true)} 
-                  className="w-full h-full grayscale-reveal bg-slate-200 flex flex-col items-center justify-center transition-all duration-1000">
-                  <Search size={48} strokeWidth={1} />
+                  className="w-full h-full bg-slate-200 flex flex-col items-center justify-center grayscale-reveal">
+                  <Search size={40} strokeWidth={1} />
                   <p className="utility-label mt-4">Reveal Ticket</p>
                 </button>
               ) : (
-                <div className="animate-premium px-8">
-                   <p className="utility-label mb-2">Your Secret Assignment:</p>
-                   <div className="text-6xl font-black uppercase tracking-tighter">
+                <div className="px-6">
+                   <p className="utility-label mb-2 opacity-50">Confidential Word:</p>
+                   <div className="text-4xl md:text-6xl font-black uppercase tracking-tight break-words">
                     {currentPlayer === gameData.imposterIndex ? 'dhokebaaz' : gameData.secretWord}
                    </div>
                    <button 
                     onClick={nextPlayer} 
-                    className="mt-8 bg-[#262626] text-white px-10 py-4 rounded-full utility-label hover:bg-[#e4a4bd] hover:text-[#262626] transition-all">
-                    Confirm & Pass
+                    className="mt-8 bg-[#262626] text-white px-8 py-4 rounded-full utility-label hover:bg-[#e4a4bd] hover:text-[#262626] transition-all w-full">
+                    I Understand
                    </button>
                 </div>
               )}
@@ -194,67 +192,49 @@ const App = () => {
         )}
 
         {gameState === 'discussion' && (
-          <section className="min-h-[calc(100vh-80px)] grid grid-cols-12 gap-0 border-t border-black/10">
-            <div className="col-span-12 lg:col-span-6 p-20 flex flex-col justify-center border-r border-black/10">
-              <h2 className="text-[8vw] mb-6 italic font-light text-[#e4a4bd] lowercase">discussion</h2>
-              <p className="text-2xl leading-relaxed opacity-70">
-                The itinerary has been shared. One of you is an interloper. 
-                Describe your destination without giving it away. Find the 
-                <span className="font-bold text-[#262626] uppercase mx-2">धोकेबाज</span>.
+          <section className="min-h-[calc(100vh-80px)] flex flex-col lg:grid lg:grid-cols-12 border-t border-black/10">
+            <div className="lg:col-span-6 p-8 md:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-black/10">
+              <h2 className="text-6xl md:text-[8vw] mb-4 italic font-light text-[#e4a4bd] lowercase">discussion</h2>
+              <p className="text-lg md:text-2xl leading-relaxed opacity-70">
+                The itinerary is set. Describe your assignment. Find the 
+                <span className="font-bold text-[#262626] uppercase mx-2">interloper</span>.
               </p>
             </div>
-            <div className="col-span-12 lg:col-span-6 p-20 flex items-center justify-center bg-[#f5f0eb]">
+            <div className="lg:col-span-6 p-12 md:p-20 flex items-center justify-center bg-[#f5f0eb]">
               <button 
                 onClick={() => setGameState('voting')} 
-                className="w-64 h-64 rounded-full bg-[#262626] text-[#fdf8f3] flex flex-col items-center justify-center hover:scale-110 transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-                <span className="utility-label">Reveal the</span>
-                <span className="text-2xl font-black">TRUTH</span>
+                className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-[#262626] text-[#fdf8f3] flex flex-col items-center justify-center active:scale-90 transition-transform">
+                <span className="utility-label">Reveal</span>
+                <span className="text-xl md:text-2xl font-black">RESULT</span>
               </button>
             </div>
           </section>
         )}
 
         {gameState === 'voting' && (
-          <section className="min-h-[calc(100vh-80px)] p-12 flex flex-col items-center justify-center">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-5xl">
-                <div className="p-16 bg-[#e4a4bd] rounded-[24px]">
-                  <p className="utility-label mb-4">The Secret Word</p>
-                  <h3 className="text-7xl font-black uppercase">{gameData.secretWord}</h3>
+          <section className="min-h-[calc(100vh-80px)] px-6 md:px-12 flex flex-col items-center justify-center py-10">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl">
+                <div className="p-8 md:p-16 bg-[#e4a4bd] rounded-[24px]">
+                  <p className="utility-label mb-2">The Word</p>
+                  <h3 className="text-4xl md:text-6xl font-black uppercase">{gameData.secretWord}</h3>
                 </div>
-                <div className="p-16 bg-[#262626] text-[#fdf8f3] rounded-[24px]">
-                  <p className="utility-label mb-4 text-[#e4a4bd]">The Imposter</p>
-                  <h3 className="text-7xl font-black uppercase tracking-tighter">PLAYER {gameData.imposterIndex + 1}</h3>
+                <div className="p-8 md:p-16 bg-[#262626] text-[#fdf8f3] rounded-[24px]">
+                  <p className="utility-label mb-2 text-[#e4a4bd]">The Imposter</p>
+                  <h3 className="text-4xl md:text-6xl font-black uppercase">Player {gameData.imposterIndex + 1}</h3>
                 </div>
              </div>
              <button 
               onClick={() => setGameState('setup')} 
-              className="mt-12 flex items-center gap-4 group">
-                <span className="text-2xl border-b-2 border-[#262626] pb-1 font-bold">NEW EXPEDITION</span>
-                <RotateCcw className="group-hover:rotate-180 transition-transform duration-700" />
+              className="mt-12 flex items-center gap-4 group uppercase font-bold border-b-2 border-black pb-1">
+                New Game <RotateCcw size={18} />
              </button>
           </section>
         )}
       </main>
 
-      <footer className="bg-[#f5f0eb] p-12 border-t border-black/5">
-        <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-12 lg:col-span-5">
-            <div className="font-black text-2xl mb-4">DHOKEBAAZ.</div>
-            <p className="utility-label opacity-50 max-w-xs leading-loose">Premium social experiences for the modern traveler. Play responsibly.</p>
-          </div>
-          <div className="col-span-4 lg:col-span-2">
-            <p className="utility-label text-[#e4a4bd] mb-4 border-b border-[#e4a4bd] pb-2 inline-block">Menu</p>
-            <ul className="space-y-2 font-bold uppercase text-xs">
-              <li>Home</li>
-              <li>Rules</li>
-              <li>Credits</li>
-            </ul>
-          </div>
-        </div>
-        <div className="mt-20 pt-8 border-t border-black/5 flex justify-between text-[9px] utility-label opacity-30">
-          <span>© 2026 DHOKEBAAZ TRAVEL SYSTEMS</span>
-          <span>NEPAL TWIST INC.</span>
-        </div>
+      <footer className="bg-[#f5f0eb] p-6 md:p-12 border-t border-black/5 mt-auto">
+        <div className="font-black text-xl mb-2">DHOKEBAAZ.</div>
+        <p className="text-[10px] utility-label opacity-40">© 2026 Premium Social Systems</p>
       </footer>
     </div>
   );
