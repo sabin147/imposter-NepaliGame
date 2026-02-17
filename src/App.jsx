@@ -1,11 +1,6 @@
-
 import React, { useState } from 'react';
-// Add ArrowRight to this list below:
-
 import './App.css';
-import { Ghost, Search, RotateCcw, ArrowRight,  ChevronRight, MessageCircle } from 'lucide-react';
-import NepaliImposterLogo from './Logo';
-import gameIcon from './assets/topi.jpg'; // Example asset import, replace with actual path if needed
+import { RotateCcw, ArrowRight, Eye } from 'lucide-react';
 
 const categories = {
   animals: {
@@ -46,14 +41,14 @@ const categories = {
   sports: {
     name: '⚽ Sports',
     words: [
-      'Football', 'Basketball', 'Cricket', 'Tennis', 'Baseball', 'Rugby', 'Hockey', 'Ice Hockey', 'Golf', 'Volleyball', 'Handball', 'Table Tennis', 'Badminton', 'Squash', 'Bowling', 'Billiards', 'Snooker', 'Pool', 'Darts', 'Chess', 'Boxing', 'Wrestling', 'MMA', 'Karate', 'Judo', 'Taekwondo', 'Kung Fu', 'Fencing', 'Archery', 'Shooting', 'Swimming', 'Diving', 'Water Polo', 'Surfing', 'Sailing', 'Rowing', 'Kayaking', 'Canoeing', 'Skiing', 'Snowboarding', 'Ice Skating', 'Figure Skating', 'Cycling', 'Mountain Biking', 'BMX', 'Motocross', 'Formula 1', 'NASCAR', 'Rallying', 'Gymnastics', 'Athletics', 'Running', 'Marathon', 'High Jump', 'Long Jump', 'Pole Vault', 'Shot Put', 'Discus Throw', 'Javelin Throw', 'Weightlifting', 'Bodybuilding', 'Yoga', 'Pilates', 'Horse Racing', 'Polo', 'Equestrian', 'Bullfighting', 'Skateboarding', 'Climbing', 'Hiking', 'Triathlon', 'Ironman', 'Parkour', 'Crossfit', 'Lacrosse', 'Curling', 'Sumo', 'Softball', 'Cricket',
-      'Dandi Biyo', 'Kabaddi', 'Kho Kho', 'Elephant Polo', 'Bagh Chal', 'Chungi', 'Seven Stones', 'Bhurung', 'Ludo', 'Carrom Board', 'Lukamari', 'Guchcha', 'Langdachha', 'Kut-Kut', 'Bull Fighting', 'Taekwondo', 'Karate', 'Volleyball', 'Wrestling', 'Cricket'
+      'Football', 'Basketball', 'Cricket', 'Tennis', 'Baseball', 'Rugby', 'Hockey', 'Ice Hockey', 'Golf', 'Volleyball', 'Handball', 'Table Tennis', 'Badminton', 'Squash', 'Bowling', 'Billiards', 'Snooker', 'Pool', 'Darts', 'Chess', 'Boxing', 'Wrestling', 'MMA', 'Karate', 'Judo', 'Taekwondo', 'Kung Fu', 'Fencing', 'Archery', 'Shooting', 'Swimming', 'Diving', 'Water Polo', 'Surfing', 'Sailing', 'Rowing', 'Kayaking', 'Canoeing', 'Skiing', 'Snowboarding', 'Ice Skating', 'Figure Skating', 'Cycling', 'Mountain Biking', 'BMX', 'Motocross', 'Formula 1', 'NASCAR', 'Rallying', 'Gymnastics', 'Athletics', 'Running', 'Marathon', 'High Jump', 'Long Jump', 'Pole Vault', 'Shot Put', 'Discus Throw', 'Javelin Throw', 'Weightlifting', 'Bodybuilding', 'Yoga', 'Pilates', 'Horse Racing', 'Polo', 'Equestrian', 'Skateboarding', 'Climbing', 'Hiking', 'Triathlon', 'Ironman', 'Parkour', 'Crossfit', 'Lacrosse', 'Curling', 'Sumo', 'Softball',
+      'Dandi Biyo', 'Kabaddi', 'Kho Kho', 'Elephant Polo', 'Bagh Chal', 'Chungi', 'Seven Stones', 'Bhurung', 'Ludo', 'Carrom Board', 'Lukamari', 'Guchcha', 'Langdachha', 'Kut-Kut'
     ]
   },
   festivals: {
     name: '🎉 Festivals',
     words: [
-      'Christmas', 'Easter', 'Halloween', 'Thanksgiving', 'New Year', 'Chinese New Year', 'Valentine Day', 'Saint Patrick Day', 'Mardi Gras', 'Carnival of Rio', 'Oktoberfest', 'Diwali', 'Eid al-Fitr', 'Eid al-Adha', 'Hanukkah', 'Passover', 'Ramadan', 'Holi', 'Lent', 'Pentecost', 'Vaisakhi', 'Songkran', 'Loy Krathong', 'Tet', 'Lunar New Year', 'Dia de los Muertos', 'Independence Day', 'Labor Day', 'Memorial Day', 'Veterans Day', 'Canada Day', 'Bastille Day', 'Boxing Day', 'Earth Day', 'Mother Day', 'Father Day', 'Christmas Eve', 'New Year Eve', 'April Fool Day', 'Pride Month', 'Glastonbury Festival', 'Coachella', 'Tomorrowland', 'Burning Man', 'Cannes Film Festival', 'Oscars', 'Grammys', 'Super Bowl', 'World Cup', 'Olympics', 'Wimbledon', 'Tour de France', 'Daytona 500', 'Kyoto Gion Matsuri', 'Sapporo Snow Festival', 'Harbin Ice Festival', 'La Tomatina', 'Running of the Bulls', 'Festa della Donna', 'Festa della Repubblica', 'Belgian National Day', 'Swiss National Day', 'German Unity Day', 'Austrian National Day', 'Greek Independence Day', 'Turkish Republic Day', 'Indian Independence Day', 'Pakistan Independence Day', 'Australia Day', 'New Zealand Day', 'Waitangi Day', 'Columbus Day', 'Thanksgiving (Canada)', 'Guy Fawkes Night', 'Poppy Day', 'Remembrance Sunday', 'Saint Nicholas Day',
+      'Christmas', 'Easter', 'Halloween', 'Thanksgiving', 'New Year', 'Chinese New Year', 'Valentine Day', 'Saint Patrick Day', 'Mardi Gras', 'Carnival of Rio', 'Oktoberfest', 'Diwali', 'Eid al-Fitr', 'Eid al-Adha', 'Hanukkah', 'Passover', 'Ramadan', 'Holi', 'Lent', 'Pentecost', 'Vaisakhi', 'Songkran', 'Loy Krathong', 'Tet', 'Lunar New Year', 'Dia de los Muertos', 'Independence Day', 'Labor Day', 'Memorial Day', 'Veterans Day', 'Canada Day', 'Bastille Day', 'Boxing Day', 'Earth Day', 'Mother Day', 'Father Day', 'Christmas Eve', 'New Year Eve', 'April Fool Day', 'Pride Month',
       'Dashain', 'Tihar', 'Chhath', 'Lhosar', 'Shivaratri', 'Buddha Jayanti', 'Indra Jatra', 'Bisket Jatra', 'Ghode Jatra', 'Teej', 'Rishi Panchami', 'Maghe Sankranti', 'Shree Panchami', 'Janai Purnima', 'Gai Jatra', 'Krishna Janmashtami', 'Fagun Purnima', 'Ubhauli', 'Udhauli', 'Nepal Sambat'
     ]
   }
@@ -76,7 +71,6 @@ const App = () => {
     const cat = categories[catKey];
     const word = cat.words[Math.floor(Math.random() * cat.words.length)];
     const imposter = Math.floor(Math.random() * playerCount);
-
     setGameData({ secretWord: word, imposterIndex: imposter, categoryName: cat.name });
     setCurrentPlayer(0);
     setShowWord(false);
@@ -92,148 +86,223 @@ const App = () => {
     }
   };
 
- return (
-    <div className="min-h-screen bg-[#fdf8f3] text-[#262626]">
-      {/* Navigation - Responsive height and padding */}
-      <nav className="fixed top-0 w-full h-16 md:h-20 flex items-center justify-between px-6 md:px-12 z-50 bg-[#fdf8f3]/90 backdrop-blur-md border-b border-black/5">
-        <div className="font-black text-lg md:text-xl tracking-tighter uppercase">DHOKEBAAZ</div>
-        <button 
-          onClick={() => setGameState('setup')} 
-          className="bg-[#e4a4bd] px-4 py-2 md:px-8 md:py-3 rounded-full utility-label text-[8px] md:text-[10px]">
+  const isImposter = currentPlayer === gameData.imposterIndex;
+
+  return (
+    <div className="min-h-screen bg-[#fdf8f3] text-[#262626] flex flex-col">
+
+      {/* ── NAV ── */}
+      <nav className="fixed top-0 w-full h-14 md:h-20 flex items-center justify-between px-5 md:px-12 z-50 bg-[#fdf8f3]/90 backdrop-blur-md border-b border-black/5">
+        <div className="font-black text-base md:text-xl tracking-tighter uppercase">धोकेबाज 🎭</div>
+        <button
+          onClick={() => setGameState('setup')}
+          className="bg-[#e4a4bd] px-4 py-2 rounded-full font-black text-xs">
           Reset
         </button>
       </nav>
 
-      <main className="pt-16 md:pt-20">
+      <main className="pt-14 md:pt-20 flex-1">
+
+        {/* ── SETUP ── */}
         {gameState === 'setup' && (
-          <section className="min-h-[calc(100vh-80px)] grid grid-cols-12 gap-6 md:gap-8 items-center px-6 md:px-12 py-10">
-            <div className="col-span-12 lg:col-span-7">
-              <h1 className="mb-6 md:mb-8">
-                WHO IS THE <br />
-                <span className="text-[#e4a4bd] italic font-light lowercase">dhokebaaz?</span>
+          <section className="flex flex-col justify-center px-5 md:px-12 py-6 md:py-10">
+
+            {/* Heading + Badge */}
+            <div className="relative mb-4 md:mb-6">
+              <h1 className="text-[2.8rem] md:text-[clamp(3.5rem,12vw,10rem)] leading-[0.85] font-black uppercase">
+                को होला<br />
+                <span className="text-[#e4a4bd] italic font-light">धोकेबाज?</span>
               </h1>
-              <div className="flex items-center gap-4 group cursor-pointer mb-10 lg:mb-0" onClick={startGame}>
-                <span className="text-xl md:text-2xl border-b-2 border-[#e4a4bd] pb-1 font-bold">START EXPEDITION</span>
-                <ArrowRight className="text-[#e4a4bd] group-hover:translate-x-2 transition-transform" />
+              {/* 01 Ranked Badge */}
+              <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-lg">
+                <span className="text-lg md:text-2xl font-light italic leading-none">01</span>
+                <span className="text-[5px] md:text-[7px] font-black tracking-widest uppercase">Ranked</span>
               </div>
             </div>
 
-            <div className="col-span-12 lg:col-span-5 relative">
-              <div className="bg-[#f5f0eb] p-6 md:p-10 rounded-[24px] border border-black/5">
-                <div className="space-y-8 md:space-y-10">
-                  <div>
-                    <p className="utility-label mb-2">Travelers</p>
-                    <div className="flex items-center justify-between border-b border-black/10 pb-2">
-                      <button onClick={() => setPlayerCount(Math.max(3, playerCount - 1))} className="text-3xl">-</button>
-                      <span className="text-5xl md:text-7xl font-black">{playerCount}</span>
-                      <button onClick={() => setPlayerCount(Math.min(20, playerCount + 1))} className="text-3xl">+</button>
-                    </div>
-                  </div>
-
-                 <div>
-  <p className="utility-label mb-2">Destination</p>
-  <div className="grid grid-cols-2 gap-2 max-h-[280px] md:max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
-    <button 
-      onClick={() => setSelectedCategory('all')} 
-      className={`p-3 text-xs font-bold transition-all ${selectedCategory === 'all' ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
-      ALL RANDOM
-    </button>
-    {Object.entries(categories).map(([key, cat]) => (
-      <button 
-        key={key} 
-        onClick={() => setSelectedCategory(key)} 
-        className={`p-3 text-xs font-bold transition-all ${selectedCategory === key ? 'bg-[#e4a4bd]' : 'bg-white'}`}>
-        {cat.name.toUpperCase()}
-      </button>
-    ))}
-  </div>
-</div>
-                </div>
-              </div>
-              
-              {/* Badge - Scaled down for mobile */}
-              <div className="absolute -top-18 -right-4 md:-top-24 md:-right-12 w-24 h-24 md:w-40 md:h-40 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-xl z-10">
-                <span className="text-2xl md:text-4xl font-light italic">01</span>
-                <span className="utility-label text-[6px] md:text-[8px]">Ranked</span>
+            {/* Players row */}
+            <div className="bg-[#f5f0eb] rounded-2xl px-5 py-3 md:py-4 flex items-center justify-between mb-3 md:mb-4">
+              <span className="font-black text-base md:text-lg uppercase tracking-wide">Players</span>
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={() => setPlayerCount(Math.max(3, playerCount - 1))}
+                  className="w-9 h-9 md:w-11 md:h-11 bg-white rounded-full font-black text-xl flex items-center justify-center shadow-sm active:scale-90 transition-transform">
+                  −
+                </button>
+                <span className="text-3xl md:text-5xl font-black w-10 text-center">{playerCount}</span>
+                <button
+                  onClick={() => setPlayerCount(Math.min(20, playerCount + 1))}
+                  className="w-9 h-9 md:w-11 md:h-11 bg-white rounded-full font-black text-xl flex items-center justify-center shadow-sm active:scale-90 transition-transform">
+                  +
+                </button>
               </div>
             </div>
+
+            {/* Categories label */}
+            <p className="font-black text-sm md:text-base uppercase tracking-widest mb-2 opacity-50">Categories</p>
+
+            {/* Category grid */}
+            <div className="mb-4 md:mb-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+                <button
+                  onClick={() => setSelectedCategory('all')}
+                  className={`p-3 md:p-4 text-sm md:text-base font-black rounded-xl transition-all active:scale-95 ${selectedCategory === 'all' ? 'bg-[#e4a4bd] text-[#262626]' : 'bg-[#f5f0eb]'}`}>
+                  🎲 ALL
+                </button>
+                {Object.entries(categories).map(([key, cat]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedCategory(key)}
+                    className={`p-3 md:p-4 text-sm md:text-base font-black rounded-xl transition-all active:scale-95 ${selectedCategory === key ? 'bg-[#e4a4bd] text-[#262626]' : 'bg-[#f5f0eb]'}`}>
+                    {cat.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* START GAME */}
+            <button
+              onClick={startGame}
+              className="w-full bg-[#262626] text-[#fdf8f3] py-4 md:py-5 rounded-2xl font-black text-lg md:text-xl flex items-center justify-center gap-3 active:scale-95 transition-transform hover:bg-[#e4a4bd] hover:text-[#262626]">
+              START GAME <ArrowRight size={22} />
+            </button>
+
           </section>
         )}
 
+        {/* ── PLAYING ── */}
         {gameState === 'playing' && (
-          <section className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-6 text-center py-10">
-            <p className="utility-label text-[#e4a4bd] mb-2">Explorer {currentPlayer + 1} / {playerCount}</p>
-            <h2 className="text-4xl md:text-7xl mb-8 font-black uppercase tracking-tighter">Identity</h2>
-            
-            <div className="w-full max-w-lg aspect-[4/5] md:aspect-[16/9] bg-[#f5f0eb] rounded-[24px] flex items-center justify-center overflow-hidden border border-black/5 relative">
+          <section className="min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-5 py-6 text-center">
+
+            {/* Progress dots */}
+            <div className="flex gap-2 mb-5 flex-wrap justify-center">
+              {Array.from({ length: playerCount }).map((_, i) => (
+                <div
+                  key={i}
+                  className={`rounded-full transition-all ${i < currentPlayer ? 'w-3 h-3 bg-[#e4a4bd]' : i === currentPlayer ? 'w-4 h-4 bg-[#262626]' : 'w-3 h-3 bg-black/10'}`}
+                />
+              ))}
+            </div>
+
+            {/* Player label — bigger */}
+            <p className="font-black text-2xl md:text-3xl text-[#e4a4bd] mb-2 uppercase tracking-widest">
+              Player {currentPlayer + 1} of {playerCount}
+            </p>
+
+            {/* Category pill — bigger */}
+            <div className="flex items-center gap-2 mb-5 bg-[#f5f0eb] px-5 py-3 rounded-full border border-black/5">
+              <span className="text-2xl">{gameData.categoryName.split(' ')[0]}</span>
+              <span className="font-black text-lg md:text-xl">
+                {gameData.categoryName.replace(/^\S+\s*/, '')}
+              </span>
+            </div>
+
+            {/* Card */}
+            <div className="w-full max-w-sm md:max-w-lg bg-[#f5f0eb] rounded-[24px] overflow-hidden border border-black/5">
               {!showWord ? (
-                <button 
-                  onClick={() => setShowWord(true)} 
-                  className="w-full h-full bg-slate-200 flex flex-col items-center justify-center grayscale-reveal">
-                  <Search size={40} strokeWidth={1} />
-                  <p className="utility-label mt-4">Reveal Ticket</p>
+                <button
+                  onClick={() => setShowWord(true)}
+                  className="w-full py-20 md:py-28 bg-slate-200 flex flex-col items-center justify-center grayscale-reveal gap-3 active:scale-95 transition-transform">
+                  <Eye size={44} strokeWidth={1.5} />
+                  <p className="font-black text-xl md:text-2xl">Tap to Reveal</p>
+                  <p className="text-base opacity-50">Make sure no one else is watching!</p>
                 </button>
+              ) : isImposter ? (
+                /* IMPOSTER */
+                <div className="p-8 flex flex-col items-center bg-[#262626] text-[#fdf8f3]">
+                  <div className="text-6xl mb-3 animate-bounce">🤫</div>
+                  <p className="font-black text-sm tracking-widest uppercase opacity-40 mb-3">Ssshhh... Secret!</p>
+                  <div className="text-4xl md:text-5xl font-black text-[#e4a4bd] mb-1">IMPOSTER</div>
+                  <div className="text-2xl md:text-3xl font-black mb-1">तिमी हौ</div>
+                  <div className="text-3xl md:text-4xl font-black text-[#e4a4bd] mb-2">धोकेबाज! 😈</div>
+                  <p className="text-base opacity-40 mb-6">Act normal. Blend in. Don't get caught!</p>
+                  <button
+                    onClick={nextPlayer}
+                    className="bg-[#e4a4bd] text-[#262626] px-8 py-4 rounded-full font-black text-lg hover:opacity-80 transition-all w-full active:scale-95">
+                    बुझें! (Got it!)
+                  </button>
+                </div>
               ) : (
-                <div className="px-6">
-                   <p className="utility-label mb-2 opacity-50">Confidential Word:</p>
-                   <div className="text-4xl md:text-6xl font-black uppercase tracking-tight break-words">
-                    {currentPlayer === gameData.imposterIndex ? 'dhokebaaz' : gameData.secretWord}
-                   </div>
-                   <button 
-                    onClick={nextPlayer} 
-                    className="mt-8 bg-[#262626] text-white px-8 py-4 rounded-full utility-label hover:bg-[#e4a4bd] hover:text-[#262626] transition-all w-full">
-                    I Understand
-                   </button>
+                /* NORMAL PLAYER */
+                <div className="p-8 flex flex-col items-center">
+                  <div className="text-4xl mb-3">🤫</div>
+                  <p className="font-black text-lg md:text-xl opacity-50 mb-2">तिम्रो शब्द हो:</p>
+                  <div className="text-4xl md:text-6xl font-black uppercase tracking-tight break-words text-center my-2">
+                    {gameData.secretWord}
+                  </div>
+                  <p className="text-base opacity-40 mt-2 mb-6">Remember it. Don't say it out loud!</p>
+                  <button
+                    onClick={nextPlayer}
+                    className="bg-[#262626] text-white px-8 py-4 rounded-full font-black text-lg hover:bg-[#e4a4bd] hover:text-[#262626] transition-all w-full active:scale-95">
+                    बुझें! (Got it!)
+                  </button>
                 </div>
               )}
             </div>
           </section>
         )}
 
+        {/* ── DISCUSSION ── */}
         {gameState === 'discussion' && (
-          <section className="min-h-[calc(100vh-80px)] flex flex-col lg:grid lg:grid-cols-12 border-t border-black/10">
-            <div className="lg:col-span-6 p-8 md:p-20 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-black/10">
-              <h2 className="text-6xl md:text-[8vw] mb-4 italic font-light text-[#e4a4bd] lowercase">discussion</h2>
-              <p className="text-lg md:text-2xl leading-relaxed opacity-70">
-                The itinerary is set. Describe your assignment. Find the 
-                <span className="font-bold text-[#262626] uppercase mx-2">interloper</span>.
-              </p>
+          <section className="min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-80px)] flex flex-col items-center justify-center px-5 py-10 text-center">
+            <div className="text-5xl mb-4">🕵️</div>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-2">छलफल गरौं!</h2>
+            <p className="text-2xl md:text-3xl font-black text-[#e4a4bd] mb-6">Discussion Time!</p>
+
+            <div className="bg-[#f5f0eb] rounded-[24px] p-6 md:p-10 max-w-lg w-full mb-6 text-left space-y-4">
+              <p className="font-black text-sm uppercase tracking-widest opacity-50 mb-2">HOW TO PLAY</p>
+              {[
+                { icon: '💬', text: <>Each player describes the word — <span className="font-black">without saying it directly!</span></> },
+                { icon: '🎭', text: <><span className="font-black text-[#e4a4bd]">धोकेबाज</span> doesn't know the word — they must bluff and blend in!</> },
+                { icon: '🗳️', text: <>After everyone speaks, <span className="font-black">vote</span> on who you think is the धोकेबाज!</> },
+                { icon: '⚠️', text: <>Category was: <span className="font-black">{gameData.categoryName}</span></> },
+              ].map((item, i) => (
+                <div key={i} className="flex gap-3 items-start">
+                  <span className="text-2xl">{item.icon}</span>
+                  <p className="text-base md:text-lg leading-snug">{item.text}</p>
+                </div>
+              ))}
             </div>
-            <div className="lg:col-span-6 p-12 md:p-20 flex items-center justify-center bg-[#f5f0eb]">
-              <button 
-                onClick={() => setGameState('voting')} 
-                className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-[#262626] text-[#fdf8f3] flex flex-col items-center justify-center active:scale-90 transition-transform">
-                <span className="utility-label">Reveal</span>
-                <span className="text-xl md:text-2xl font-black">RESULT</span>
-              </button>
-            </div>
+
+            <button
+              onClick={() => setGameState('voting')}
+              className="bg-[#262626] text-[#fdf8f3] px-10 py-5 rounded-2xl font-black text-xl hover:bg-[#e4a4bd] hover:text-[#262626] transition-all active:scale-95">
+              🎯 Reveal धोकेबाज!
+            </button>
           </section>
         )}
 
+        {/* ── RESULT ── */}
         {gameState === 'voting' && (
-          <section className="min-h-[calc(100vh-80px)] px-6 md:px-12 flex flex-col items-center justify-center py-10">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-4xl">
-                <div className="p-8 md:p-16 bg-[#e4a4bd] rounded-[24px]">
-                  <p className="utility-label mb-2">The Word</p>
-                  <h3 className="text-4xl md:text-6xl font-black uppercase">{gameData.secretWord}</h3>
-                </div>
-                <div className="p-8 md:p-16 bg-[#262626] text-[#fdf8f3] rounded-[24px]">
-                  <p className="utility-label mb-2 text-[#e4a4bd]">The Imposter</p>
-                  <h3 className="text-4xl md:text-6xl font-black uppercase">Player {gameData.imposterIndex + 1}</h3>
-                </div>
-             </div>
-             <button 
-              onClick={() => setGameState('setup')} 
-              className="mt-12 flex items-center gap-4 group uppercase font-bold border-b-2 border-black pb-1">
-                New Game <RotateCcw size={18} />
-             </button>
+          <section className="min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-80px)] px-5 md:px-12 flex flex-col items-center justify-center py-10 text-center">
+            <div className="text-5xl mb-3">🎉</div>
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8">नतिजा!</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-2xl mb-8">
+              <div className="p-8 md:p-12 bg-[#e4a4bd] rounded-[24px] text-left">
+                <p className="font-black text-sm uppercase tracking-widest mb-2 opacity-60">🤫 Secret Word Was</p>
+                <h3 className="text-4xl md:text-5xl font-black uppercase">{gameData.secretWord}</h3>
+                <p className="text-base mt-2 opacity-60 font-bold">{gameData.categoryName}</p>
+              </div>
+              <div className="p-8 md:p-12 bg-[#262626] text-[#fdf8f3] rounded-[24px] text-left">
+                <p className="font-black text-sm uppercase tracking-widest mb-2 text-[#e4a4bd]">😈 धोकेबाज थियो</p>
+                <h3 className="text-4xl md:text-5xl font-black uppercase">Player {gameData.imposterIndex + 1}</h3>
+                <p className="text-base mt-2 opacity-40 font-bold">थियो धोकेबाज!</p>
+              </div>
+            </div>
+
+            <button
+              onClick={() => { setGameState('setup'); setSelectedCategory('all'); }}
+              className="flex items-center gap-3 bg-[#e4a4bd] px-8 py-4 rounded-2xl font-black text-lg hover:scale-105 transition-transform active:scale-95">
+              <RotateCcw size={20} /> फेरि खेलौं! (Play Again)
+            </button>
           </section>
         )}
       </main>
 
-      <footer className="bg-[#f5f0eb] p-6 md:p-12 border-t border-black/5 mt-auto">
-        <div className="font-black text-xl mb-2">DHOKEBAAZ.</div>
-        <p className="text-[10px] utility-label opacity-40">© 2026 Premium Social Systems</p>
+      <footer className="bg-[#f5f0eb] p-5 md:p-8 border-t border-black/5">
+        <div className="font-black text-lg mb-1">धोकेबाज.</div>
+        <p className="text-xs font-bold opacity-40 uppercase tracking-widest">© 2026 Premium Social Systems</p>
       </footer>
     </div>
   );
