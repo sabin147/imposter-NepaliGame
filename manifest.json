@@ -1,0 +1,24 @@
+{
+  "name": "धोकेबाज - Nepali Imposter Game",
+  "short_name": "धोकेबाज",
+  "description": "Find the imposter in this fun Nepali party game",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fdf8f3",
+  "theme_color": "#e4a4bd",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
