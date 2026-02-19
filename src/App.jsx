@@ -171,7 +171,7 @@ const App = () => {
               </h1>
               {/* 01 Ranked Badge */}
               <div className="absolute top-0 right-0 w-16 h-16 md:w-24 md:h-24 bg-[#e4a4bd] rounded-full flex flex-col items-center justify-center animate-[bounce-slow_4s_ease-in-out_infinite] shadow-lg">
-                <span className="text-lg md:text-2xl font-light italic leading-none">01</span>
+                <span className="text-lg md:text-4xl font-light italic leading-none">01</span>
                 <span className="text-[5px] md:text-[7px] font-black tracking-widest uppercase">Ranked</span>
               </div>
             </div>
