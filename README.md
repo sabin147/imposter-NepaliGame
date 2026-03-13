@@ -98,30 +98,14 @@ The game is all about **bluffing, deduction, and discussion** — just like Mafi
 
 ---
 
-### Screenshots
+## 📸 Screenshots
 
-<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-  <div>
-    <h4>Category Selection</h4>
-    <img src="./screenshots/categories.jpeg" width="250" alt="Category Selection" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-  </div>
-  <div>
-    <h4>Discussion Round</h4>
-    <img src="./screenshots/Rules.jpeg" width="250" alt="Discussion" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-  </div>
-  <div>
-    <h4>Imposter Screen</h4>
-    <img src="./screenshots/imposterScreen.jpeg" width="250" alt="Voting" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-  </div>
-  <div>
-    <h4>Game Play</h4>
-    <img src="./screenshots/Word.jpeg" width="250" alt="Mobile" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-  </div>
-  <div>
-    <h4>Rules</h4>
-    <img src="./screenshots/Bword.jpeg" width="250" alt="Results" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-  </div>
-</div>
+|  |  |  |
+|---|---|---|
+| ![Category Selection](./screenshots/categories.jpeg) | ![Discussion Round](./screenshots/Rules.jpeg) | ![Imposter Screen](./screenshots/imposterScreen.jpeg) |
+| **Category Selection** | **Discussion Round** | **Imposter Screen** |
+| ![Game Play](./screenshots/Word.jpeg) | ![Rules](./screenshots/Bword.jpeg) | |
+| **Game Play** | **Rules** | |
 ---
 
 ## 🛠️ Installation & Setup
