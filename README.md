@@ -101,19 +101,19 @@ The game is all about **bluffing, deduction, and discussion** — just like Mafi
 ## 📸 Screenshots
 
 ### Category Selection Screen
-![Category Selection](./screenshots/categories.jpg)
+![Category Selection](./screenshots/categories.jpeg)
 
 ### Discussion Round
-![Discussion](./screenshots/Rules.jpg)
+![Discussion](./screenshots/Rules.jpeg)
 
 ### Imposter Screen
-![Voting](./screenshots/imposterScreen.jpg)
+![Voting](./screenshots/imposterScreen.jpeg)
 
 ### Game Play
-![Mobile](./screenshots/Word.jpg)
+![Mobile](./screenshots/Word.jpeg)
 
 ### Rules
-![Results](./screenshots/Rules.jpg)
+![Results](./screenshots/Rules.jpeg)
 
 ---
 
