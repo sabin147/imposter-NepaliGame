@@ -98,23 +98,30 @@ The game is all about **bluffing, deduction, and discussion** — just like Mafi
 
 ---
 
-## 📸 Screenshots
+### Screenshots
 
-### Category Selection Screen
-<img src="./screenshots/categories.jpeg" width="500" alt="Category Selection">
-
-### Discussion Round
-<img src="./screenshots/Rules.jpeg" width="500" alt="Discussion">
-
-### Imposter Screen
-<img src="./screenshots/imposterScreen.jpeg" width="500" alt="Voting">
-
-### Game Play
-<img src="./screenshots/Word.jpeg" width="500" alt="Mobile">
-
-### Rules
-<img src="./screenshots/Bword.jpeg" width="500" alt="Results">
-
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+  <div>
+    <h4>Category Selection</h4>
+    <img src="./screenshots/categories.jpeg" width="250" alt="Category Selection" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+  </div>
+  <div>
+    <h4>Discussion Round</h4>
+    <img src="./screenshots/Rules.jpeg" width="250" alt="Discussion" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+  </div>
+  <div>
+    <h4>Imposter Screen</h4>
+    <img src="./screenshots/imposterScreen.jpeg" width="250" alt="Voting" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+  </div>
+  <div>
+    <h4>Game Play</h4>
+    <img src="./screenshots/Word.jpeg" width="250" alt="Mobile" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+  </div>
+  <div>
+    <h4>Rules</h4>
+    <img src="./screenshots/Bword.jpeg" width="250" alt="Results" style="border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+  </div>
+</div>
 ---
 
 ## 🛠️ Installation & Setup
